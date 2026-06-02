@@ -2,22 +2,22 @@ package esame.graph;
 
 import java.util.Objects;
 
-public final class Edge<V> {
-  private final V from;
-  private final V to;
+public final class Edge {
+  private final int from;
+  private final int to;
   private double weight;
 
-  public Edge(V from, V to, double weight) {
+  public Edge(int from, int to, double weight) {
     this.from = from;
     this.to = to;
     this.weight = weight;
   }
 
-  public V from() {
+  public int from() {
     return from;
   }
 
-  public V to() {
+  public int to() {
     return to;
   }
 
@@ -32,7 +32,7 @@ public final class Edge<V> {
   @Override
   public boolean equals(Object obj) {
     return (this == obj)
-        || (obj instanceof Edge<?> other)
+        || (obj instanceof Edge other)
             && weight == other.weight
             && Objects.equals(from, other.from)
             && Objects.equals(to, other.to);

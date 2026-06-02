@@ -1,0 +1,5 @@
+Il grafo è orientato, bidirezionale e pesato. Se esiste arco Palermo-Catania 210 esiste lo stesso al contrario Catania-Palermo 210. 
+
+Gli aggiornamenti devono essere elaborati nell'ordine in cui compaiono nell'input. Ma per simulare un GPS vuol dire che verranno inviate nuove informazioni sul traffico e sul percorso.  Il suo obiettivo è calcolare il percorso come richiesto input (esempio all'inizio vado da Palermo a Siracusa, c'è un aggiornamento del percorso a causa del traffico esempio Catania Siracusa 140 allora verrà ricalcolato il percorso sempre considerando il costo), quindi la richiesta è se presente aggiornamento ricalcola il percorso. 
+
+Le tappe devono essere considerate vincoli di percorso ordinati. 
