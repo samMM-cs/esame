@@ -1,0 +1,46 @@
+10 34
+PianoDiConca Radicondoli 179.66
+Moretta SanGiulianoVecchio 252.28
+Bicinicco SanGiulianoVecchio 668.58
+FrassinetoPo SanGiulianoVecchio 66.59
+Moretta SanClemente 1084.76
+Iseo SanGiulianoVecchio 265.62
+Bicinicco SanClemente 180.64
+FrassinetoPo SanClemente 403.96
+Cologna-Caraverio SanGiulianoVecchio 150.92
+Bicinicco FrassinetoPo 964.16
+Polla Radicondoli 1105.31
+SanClemente SanGiulianoVecchio 570.59
+Iseo SanClemente 390.15
+PianoDiConca SanGiulianoVecchio 279.79
+Cologna-Caraverio FrassinetoPo 147.04
+Cologna-Caraverio SanClemente 721.16
+Bicinicco Polla 509.94
+FrassinetoPo Polla 1809.23
+PianoDiConca SanClemente 268.6
+Iseo Polla 741.51
+Radicondoli SanGiulianoVecchio 211.95
+Bicinicco PianoDiConca 597.59
+PianoDiConca Polla 510.98
+Bicinicco Iseo 295.48
+FrassinetoPo Iseo 301.84
+Iseo PianoDiConca 211.45
+Radicondoli SanClemente 181.36
+Cologna-Caraverio PianoDiConca 245.62
+Polla SanClemente 477.42
+Bicinicco Radicondoli 394.02
+Cologna-Caraverio Iseo 106.17
+Bicinicco Moretta 1276.57
+Iseo Radicondoli 356.27
+Cologna-Caraverio Moretta 154.87
+PARTENZA Radicondoli
+DESTINAZIONE Bicinicco
+TAPPE
+FrassinetoPo
+Bicinicco
+Moretta
+AGGIORNAMENTI
+FrassinetoPo Moretta 154.5
+FrassinetoPo Moretta 208.93
+Bicinicco FrassinetoPo 1055.65
+Bicinicco Moretta 1137.89

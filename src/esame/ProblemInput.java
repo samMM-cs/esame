@@ -5,6 +5,6 @@ import java.util.Map;
 
 import esame.graph.Edge;
 
-public record ProblemInput(int V, int E, List<Edge> edges, Integer partenza, Integer destinazione,
-    List<Integer> tappe, List<Edge> aggiornamenti, Map<String, Integer> cityMapping) {
+public record ProblemInput(int V, int E, List<Edge> edges, int source, int destination,
+                List<Integer> stops, List<Edge> updates, Map<String, Integer> cityMapping, String[] inverseMapping) {
 }

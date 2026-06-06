@@ -8,16 +8,12 @@ public class Graph {
   // number of vertices in the graph
   private int V;
 
-  // number of edges
-  private int E;
-
   // adjacency list of edges
   private List<Edge>[] adjacencyList;
 
   @SuppressWarnings("unchecked")
   public Graph(int V, int E, List<Edge> edges) {
     this.V = V;
-    this.E = E;
 
     // cast necessary because cannot create generic arrays
     this.adjacencyList = (List<Edge>[]) new List[this.V];
@@ -34,24 +30,27 @@ public class Graph {
     }
   }
 
+  public void applyUpdate(Edge update) {
+    int from = (update.from());
+    int to = (update.to());
+    double weight = update.weight() < 0 ? Double.POSITIVE_INFINITY : update.weight();
+    for (Edge edge : adjacencyList[from]) {
+      if (edge.to() == to) {
+        edge.setWeight(weight);
+        break;
+      }
+    }
+    for (Edge edge : adjacencyList[to]) {
+      if (edge.to() == from) {
+        edge.setWeight(weight);
+        break;
+      }
+    }
+  }
+
   public void applyUpdates(List<Edge> updates) {
     for (Edge update : updates) {
-      int from = (update.from());
-      int to = (update.to());
-      double weight = update.weight();
-      // find edges with matching vertices and update weight
-      for (Edge edge : adjacencyList[from]) {
-        if (edge.to() == to) {
-          edge.setWeight(weight);
-          break;
-        }
-      }
-      for (Edge edge : adjacencyList[to]) {
-        if (edge.to() == from) {
-          edge.setWeight(weight);
-          break;
-        }
-      }
+      applyUpdate(update);
     }
   }
 
@@ -60,12 +59,16 @@ public class Graph {
   }
 
   public int getE() {
-    return E;
+    return Arrays.stream(adjacencyList).mapToInt(List::size).sum();
+  }
+
+  public List<Edge> adj(int v) {
+    return this.adjacencyList[v];
   }
 
   @Override
   public String toString() {
     return String.format("Graph[V=%d, E=%d, adj=%s]",
-        V, E, Arrays.toString(adjacencyList));
+        V, this.getE(), Arrays.toString(adjacencyList));
   }
 }

@@ -1,8 +1,6 @@
 package esame.graph;
 
-import java.util.Objects;
-
-public final class Edge {
+public class Edge {
   private final int from;
   private final int to;
   private double weight;
@@ -30,21 +28,7 @@ public final class Edge {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    return (this == obj)
-        || (obj instanceof Edge other)
-            && weight == other.weight
-            && Objects.equals(from, other.from)
-            && Objects.equals(to, other.to);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(from, to, weight);
-  }
-
-  @Override
   public String toString() {
-    return "edge[from=" + from + ", to=" + to + ", weight=" + weight + "]";
+    return "Edge[from=" + from + ", to=" + to + ", weight=" + weight + "]";
   }
 }

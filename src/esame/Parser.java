@@ -4,18 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import esame.graph.Edge;
+import esame.utils.CityMap;
 
 public class Parser {
   private static String readNonEmptyLine(BufferedReader br) throws IOException {
     String line;
     while ((line = br.readLine()) != null) {
       if (!line.trim().isEmpty()) {
-        System.out.println(line);
         return line;
       }
     }
@@ -24,7 +22,6 @@ public class Parser {
 
   public static ProblemInput parseInputFile(String path) throws IOException {
     try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-      Map<String, Integer> cityMap = new HashMap<>();
 
       // read problem sizes from the file
       String line = readNonEmptyLine(br);
@@ -32,16 +29,24 @@ public class Parser {
       int V = Integer.parseInt(VE[0]);
       int E = Integer.parseInt(VE[1]);
 
+      CityMap cityMap = new CityMap(V);
       // read edges from the files
       List<Edge> edges = new ArrayList<>();
       for (int i = 0; i < E; i++) {
         line = readNonEmptyLine(br);
+
         String[] parts = line.trim().split("\\s+");
+
         String u = parts[0];
+
         String v = parts[1];
-        int weight = Integer.parseInt(parts[2]);
+
+        double weight = Double.parseDouble(parts[2]);
+
         cityMap.putIfAbsent(u, cityMap.size());
+
         cityMap.putIfAbsent(v, cityMap.size());
+
         edges.add(new Edge(cityMap.get(u), cityMap.get(v), weight));
       }
 
@@ -82,13 +87,14 @@ public class Parser {
           String[] parts = line.trim().split("\\s+");
           String u = parts[0];
           String v = parts[1];
-          int weight = Integer.parseInt(parts[2]);
+          double weight = Double.parseDouble(parts[2]);
           cityMap.putIfAbsent(u, cityMap.size());
           cityMap.putIfAbsent(v, cityMap.size());
-          edges.add(new Edge(cityMap.get(u), cityMap.get(v), weight));
+          aggiornamenti.add(new Edge(cityMap.get(u), cityMap.get(v), weight));
         }
       }
-      return new ProblemInput(V, E, edges, partenza, destinazione, tappe, aggiornamenti, cityMap);
+      return new ProblemInput(V, E, edges, partenza, destinazione, tappe, aggiornamenti, cityMap,
+          cityMap.getInverseIds());
     }
   }
 }
