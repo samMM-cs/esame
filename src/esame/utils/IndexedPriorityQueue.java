@@ -142,7 +142,11 @@ public class IndexedPriorityQueue<K extends Comparable<K>> {
    * @return true if the key is successfully decreased
    */
   public boolean decreaseKey(int i, K key) {
-    if (!this.validIndex(i) || !this.contains(i) || this.keys[i].compareTo(key) <= 0)
+    if (!this.validIndex(i))
+      return false;
+    if (!this.contains(i))
+      return this.insert(i, key);
+    if (this.keys[i].compareTo(key) <= 0)
       return false;
     this.keys[i] = key;
     this.bubbleUp(this.qp[i]);

@@ -15,7 +15,7 @@ public class Main {
   }
 
   public static void debug(String msg) {
-    debug(msg, true);
+    // debug(msg, true);
   }
 
   public static void main(String[] args) {

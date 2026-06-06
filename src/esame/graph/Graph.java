@@ -11,6 +11,13 @@ public class Graph {
   // adjacency list of edges
   private List<Edge>[] adjacencyList;
 
+  /**
+   * Construct a bidirectional graph
+   * 
+   * @param V     Number of vertices
+   * @param E     Initial number of edges
+   * @param edges Collection of initial edges
+   */
   @SuppressWarnings("unchecked")
   public Graph(int V, int E, List<Edge> edges) {
     this.V = V;
@@ -30,10 +37,17 @@ public class Graph {
     }
   }
 
+  /**
+   * Apply inplace update to the graph
+   * 
+   * @param update New edge representing values to update
+   */
   public void applyUpdate(Edge update) {
-    int from = (update.from());
-    int to = (update.to());
+    int from = update.from();
+    int to = update.to();
+    // Interpret negative weights as disconnection
     double weight = update.weight() < 0 ? Double.POSITIVE_INFINITY : update.weight();
+    // Update edge in both ways
     for (Edge edge : adjacencyList[from]) {
       if (edge.to() == to) {
         edge.setWeight(weight);
@@ -48,20 +62,41 @@ public class Graph {
     }
   }
 
+  /**
+   * Apply more than one update
+   * 
+   * @param updates List of edge updates
+   */
   public void applyUpdates(List<Edge> updates) {
     for (Edge update : updates) {
       applyUpdate(update);
     }
   }
 
+  /**
+   * Return vertex count
+   * 
+   * @return Node count
+   */
   public int getV() {
     return V;
   }
 
+  /**
+   * Return amount of current directed edges in the graph
+   * 
+   * @return Edge count
+   */
   public int getE() {
     return Arrays.stream(adjacencyList).mapToInt(List::size).sum();
   }
 
+  /**
+   * Return adjacency of a vertex
+   * 
+   * @param v Source vertex of adjacency
+   * @return Adjacency list of v
+   */
   public List<Edge> adj(int v) {
     return this.adjacencyList[v];
   }
