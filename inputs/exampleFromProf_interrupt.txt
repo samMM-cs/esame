@@ -1,0 +1,15 @@
+6 7
+Palermo Enna 120
+Enna Catania 90
+Enna Messina 180
+Catania Siracusa 70
+Messina Siracusa 150
+Catania Ragusa 110
+Ragusa Siracusa 60
+PARTENZA Palermo
+DESTINAZIONE Siracusa
+TAPPE
+Enna
+Catania
+AGGIORNAMENTI
+Palermo Enna -1

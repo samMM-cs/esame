@@ -12,5 +12,5 @@ java -jar bin\esame.jar <input files>
 ```sh
 chmod +x build.sh
 ./build.sh
-java -jar bin\esame.jar <input files>
+java -jar bin/esame.jar <input files>
 ```
