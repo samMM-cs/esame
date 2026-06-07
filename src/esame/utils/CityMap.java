@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 public class CityMap implements Map<String, Integer> {
   // Value used to mark a cell as deleted
-  private static final String DELETED_MARKER = new String("💀💀💀");
+  private static final String DELETED_MARKER = new String("###");
   // Mask to clear the first bit, used to force positive values
   // in the hash functions
   private static final int SIGN_MASK = ~(1 << 31);
